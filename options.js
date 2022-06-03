@@ -14,6 +14,7 @@ module.exports = {
         reply_markup: JSON.stringify({
             inline_keyboard: [
                 [{text: 'Хочешь еще раз дружок?', callback_data: '/again'}],
+                [{text: 'Не хочу', callback_data: '/net'}],
             ]
         })
     }

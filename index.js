@@ -7,7 +7,9 @@ const bot = new TelegramApi(token, {polling: true})
 
 const chats = {}
 
-
+const NetGame = async (chatId) => {
+    await bot.sendMessage(chatId, 'Ну ладно')
+}
 const startGame = async (chatId) => {
     await bot.sendMessage(chatId, `Угадай сколько гранат при мне!`)
     await bot.sendSticker(chatId, 'https://cdn.tlgrm.app/stickers/67f/830/67f8300b-14e6-4bdb-803f-601ade34e95e/256/1.webp')
@@ -65,6 +67,9 @@ const start = async () => {
         const chatId = msg.message.chat.id;
         if (data === '/again') {
             return startGame(chatId)
+        if (data === '/net') {
+            return NetGame(chatId)
+        }
         }
         const user = await UserModel.findOne({chatId})
 
