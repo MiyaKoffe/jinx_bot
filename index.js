@@ -8,6 +8,7 @@ const bot = new TelegramApi(token, {polling: true})
 const chats = {}
 
 const NetGame = async (chatId) => {
+    await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/67f/830/67f8300b-14e6-4bdb-803f-601ade34e95e/8.webp')
     await bot.sendMessage(chatId, 'Ну ладно')
 }
 const startGame = async (chatId) => {
@@ -67,7 +68,7 @@ const start = async () => {
         const chatId = msg.message.chat.id;
         if (data === '/again') {
             return startGame(chatId)
-        }   else (data === '/net'){
+        }   if (data === '/net') {
             return NetGame(chatId)
         }
 
