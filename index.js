@@ -67,10 +67,10 @@ const start = async () => {
         const chatId = msg.message.chat.id;
         if (data === '/again') {
             return startGame(chatId)
-        if (data === '/net') {
+        }   else (data === '/net'){
             return NetGame(chatId)
         }
-        }
+
         const user = await UserModel.findOne({chatId})
 
         if (data == chats[chatId]) {
