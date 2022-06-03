@@ -26,9 +26,6 @@ const start = async () => {
     }
 
 
-
-
-
     bot.setMyCommands( [
         {command: '/start', description: 'Приветствие'},
         {command: '/info', description: 'Инфо о пользователе'},
@@ -41,7 +38,7 @@ const start = async () => {
 
         try {
             if (text === '/start') {
-                await UserModel.create({chatId})
+
                 await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/67f/830/67f8300b-14e6-4bdb-803f-601ade34e95e/7.webp')
                 return bot.sendMessage(chatId, `Привет от Джинск`);
             }
