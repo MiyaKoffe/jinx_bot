@@ -1,12 +1,12 @@
 const {Sequelize} = require('sequelize');
 
 module.exports = new Sequelize(
-    'jinx_bot',
+    'j',
     'root',
     'root',
     {
-        host: '',
-        port: '',
+        host: '5.188.128.142',
+        port: '6432',
         dialect: 'postgres'
     }
 )
