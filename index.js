@@ -69,6 +69,8 @@ const start = async () => {
         {command: '/info', description: 'Инфо о пользователе'},
         {command: '/game', description: 'гранаты'},
         {command: '/music', description: 'Музыка'},
+        {command: '/boosty', description: 'Подпишись'},
+        {command: '/patreon', description: 'Подпишись'},
     ])
 
     bot.on('message', async msg => {
@@ -80,6 +82,16 @@ const start = async () => {
 
                 await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/67f/830/67f8300b-14e6-4bdb-803f-601ade34e95e/7.webp')
                 return bot.sendMessage(chatId, `Привет от Джинск`);
+            }
+            if (text === '/help') {
+                return bot.sendMessage(
+                    chatId, ` Список доступных команд:      
+                Начало - /start 
+                Информация о тебе - /info 
+                Мини-игра - /game 
+                Музыка - /music 
+                Патрон - /patreon 
+                Бусти - /boosty`)
             }
             if (text === '/music') {
                 return MusicVibor(chatId)
@@ -93,8 +105,14 @@ const start = async () => {
                 await bot.sendMessage(chatId, `Правильных ответов ${user.right}, неправильных ${user.wrong}`)
                 return startGame(chatId)
             }
+            if (text === '/boosty') {
+                return bot.sendMessage(chatId, `boosty.to/Koffman`)
+            }
+            if (text === '/patreon') {
+                return bot.sendMessage(chatId, `patreon.com/Koffman`)
+            }
 
-            return bot.sendMessage(chatId, 'Ты шо несешь!?')
+            return bot.sendMessage(chatId, 'Ты шо несешь!? Обратись к /help или используй "меню" ниже.')
         } catch (e) {
             return bot.sendMessage(chatId, 'Произошла ошибка');
         }
